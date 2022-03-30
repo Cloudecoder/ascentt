@@ -34,7 +34,7 @@ resource "aws_instance" "ec2" {
   count = var.instance_count
   ami = "ami-0851b76e8b1bce90b"
   instance_type = var.instance_type
-  vpc_security_group_ids = aws_security_group.allow_ssh.id
+  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
 }
 
 resource "aws_security_group" "allow_ssh" {
